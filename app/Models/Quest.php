@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Quest extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'category_id', 'description'];
+    protected $fillable = ['title', 'category_id', 'description', 'reward'];
     public function category() {
         return $this->belongsTo(Category::class);
     }

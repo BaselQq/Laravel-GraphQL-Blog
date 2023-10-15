@@ -2,6 +2,19 @@
 
 declare(strict_types = 1);
 
+use App\GraohQL\Mutations\Category\CreateCategoryMutation;
+use App\GraohQL\Mutations\Category\DeleteCategoryMutation;
+use App\GraohQL\Mutations\Category\UpdateCategoryMutation;
+use App\GraohQL\Mutations\Quest\CreateQuestMutation;
+use App\GraohQL\Mutations\Quest\DeleteQuestMutation;
+use App\GraohQL\Mutations\Quest\UpdateQuestMutation;
+use App\GraohQL\Queries\Category\CategoriesQuery;
+use App\GraohQL\Queries\Category\CategoryQuery;
+use App\GraohQL\Queries\Quest\QuestQuery;
+use App\GraohQL\Queries\Quest\QuestsQuery;
+use App\GraohQL\Types\CategoryType;
+use App\GraohQL\Types\QuestType;
+
 return [
     'route' => [
         // The prefix for routes; do NOT use a leading slash!
@@ -75,14 +88,23 @@ return [
     'schemas' => [
         'default' => [
             'query' => [
-                // ExampleQuery::class,
+                'quest' => QuestQuery::class,
+                'quests' => QuestsQuery::class,
+                'category' => CategoryQuery::class,
+                'categories' => CategoriesQuery::class,
             ],
             'mutation' => [
-                // ExampleMutation::class,
+                'createCategory' => CreateCategoryMutation::class,
+                'deleteCategory' => DeleteCategoryMutation::class,
+                'updateCategory' => UpdateCategoryMutation::class,
+                'createQuest' => CreateQuestMutation::class,
+                'deleteQuest' => DeleteQuestMutation::class,
+                'updateQuest' => UpdateQuestMutation::class,
             ],
             // The types only available in this schema
             'types' => [
-                // ExampleType::class,
+                'Quest' => QuestType::class,
+                'Category' => CategoryType::class
             ],
 
             // Laravel HTTP middleware
