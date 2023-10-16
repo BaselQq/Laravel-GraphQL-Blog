@@ -96,7 +96,7 @@ return [
                 'quests' => QuestsQuery::class,
                 'category' => CategoryQuery::class,
                 'categories' => CategoriesQuery::class,
-                'userLogin' => UserLoginQuery::class,
+//                'userLogin' => UserLoginQuery::class,
             ],
             'mutation' => [
                 'createCategory' => CreateCategoryMutation::class,
@@ -105,14 +105,14 @@ return [
                 'createQuest' => CreateQuestMutation::class,
                 'deleteQuest' => DeleteQuestMutation::class,
                 'updateQuest' => UpdateQuestMutation::class,
-                'createUser' => CreateUser::class
+//                'createUser' => CreateUser::class
             ],
             // The types only available in this schema
             'types' => [
                 'Quest' => QuestType::class,
                 'Category' => CategoryType::class,
-                'RegisterUser' => RegisterUserType::class,
-                'User' => UserType::class
+//                'RegisterUser' => RegisterUserType::class,
+//                'User' => UserType::class
             ],
 
             // Laravel HTTP middleware
