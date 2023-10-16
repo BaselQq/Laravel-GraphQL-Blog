@@ -1,6 +1,6 @@
 <?php
 
-namespace App\GraohQL\Mutations\Quest;
+namespace App\GraphQL\Mutations\Quest;
 
 use App\Models\Quest;
 use Rebing\GraphQL\Support\Mutation;

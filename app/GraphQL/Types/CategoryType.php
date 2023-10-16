@@ -1,6 +1,6 @@
 <?php
 
-namespace App\GraohQL\Types;
+namespace App\GraphQL\Types;
 
 use App\Models\Category;
 use GraphQL\Type\Definition\Type;

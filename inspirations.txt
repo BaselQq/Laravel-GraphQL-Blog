@@ -1,0 +1,4 @@
+https://medium.com/@abigailpalacios6/create-a-basic-application-with-laravel-lighthouse-graphql-and-react-part-iii-building-the-d54c3c5b417f
+
+
+https://albertcito.medium.com/user-authentication-with-laravel-passport-and-graphql-from-external-app-51c4eb50abd3

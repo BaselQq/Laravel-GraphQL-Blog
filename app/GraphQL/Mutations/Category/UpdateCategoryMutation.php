@@ -1,6 +1,6 @@
 <?php
 
-namespace App\GraohQL\Mutations\Category;
+namespace App\GraphQL\Mutations\Category;
 
 use App\Models\Category;
 use GraphQL\Type\Definition\Type;
@@ -8,19 +8,23 @@ use GraphQL\Type\Definition\Type as GraphQLType;
 use Rebing\GraphQL\Support\Facades\GraphQL;
 use Rebing\GraphQL\Support\Mutation;
 
-class CreateCategoryMutation extends Mutation {
+class UpdateCategoryMutation extends Mutation {
 
     protected $attributes = [
-        'name' => 'createCategory',
-        'description' => 'Create a category'
+        'name' => 'updateCategory',
+        'description' => 'Updates a category'
     ];
 
     public function type(): GraphQLType {
         return GraphQL::type('Category');
     }
 
-    public function args(): array {
+    public function args() : array {
         return [
+            'id' => [
+                'name' => 'id',
+                'type' => Type::nonNull(Type::int())
+            ],
             'title' => [
                 'name' => 'title',
                 'type' => Type::nonNull(Type::string())
@@ -29,7 +33,7 @@ class CreateCategoryMutation extends Mutation {
     }
 
     public function resolve($root, $args) {
-        $category = new Category();
+        $category = Category::query()->findOrFail($args['id']);
         $category->fill($args);
         $category->save();
 

@@ -1,21 +1,20 @@
 <?php
 
-namespace App\GraohQL\Mutations\Category;
+namespace App\GraphQL\Queries\Category;
 
 use App\Models\Category;
-use App\Models\Quest;
-use Rebing\GraphQL\Support\Mutation;
 use GraphQL\Type\Definition\Type;
+use Rebing\GraphQL\Support\Facades\GraphQL;
+use Rebing\GraphQL\Support\Middleware;
+use Rebing\GraphQL\Support\Query;
 
-class DeleteCategoryMutation extends Mutation {
-
+class CategoryQuery extends Query {
     protected $attributes = [
-        'name' => 'deleteCategory',
-        'description' => 'deletes a category'
+        'name' => 'category'
     ];
 
     public function type(): Type {
-        return Type::boolean();
+        return GraphQL::type('Category');
     }
 
     public function args(): array {
@@ -29,8 +28,6 @@ class DeleteCategoryMutation extends Mutation {
     }
 
     public function resolve($root, $args) {
-        $category = Category::query()->findOrFail($args['id']);
-
-        return (bool) $category->delete();
+        return Category::query()->findOrFail($args['id']);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\GraohQL\Queries\Quest;
+namespace App\GraphQL\Queries\Quest;
 
 use App\Models\Quest;
 use GraphQL\Type\Definition\Type;

@@ -2,18 +2,22 @@
 
 declare(strict_types = 1);
 
-use App\GraohQL\Mutations\Category\CreateCategoryMutation;
-use App\GraohQL\Mutations\Category\DeleteCategoryMutation;
-use App\GraohQL\Mutations\Category\UpdateCategoryMutation;
-use App\GraohQL\Mutations\Quest\CreateQuestMutation;
-use App\GraohQL\Mutations\Quest\DeleteQuestMutation;
-use App\GraohQL\Mutations\Quest\UpdateQuestMutation;
-use App\GraohQL\Queries\Category\CategoriesQuery;
-use App\GraohQL\Queries\Category\CategoryQuery;
-use App\GraohQL\Queries\Quest\QuestQuery;
-use App\GraohQL\Queries\Quest\QuestsQuery;
-use App\GraohQL\Types\CategoryType;
-use App\GraohQL\Types\QuestType;
+use App\GraphQL\Mutations\Category\CreateCategoryMutation;
+use App\GraphQL\Mutations\Category\DeleteCategoryMutation;
+use App\GraphQL\Mutations\Category\UpdateCategoryMutation;
+use App\GraphQL\Mutations\CreateUser;
+use App\GraphQL\Mutations\Quest\CreateQuestMutation;
+use App\GraphQL\Mutations\Quest\DeleteQuestMutation;
+use App\GraphQL\Mutations\Quest\UpdateQuestMutation;
+use App\GraphQL\Queries\Category\CategoriesQuery;
+use App\GraphQL\Queries\Category\CategoryQuery;
+use App\GraphQL\Queries\Quest\QuestQuery;
+use App\GraphQL\Queries\Quest\QuestsQuery;
+use App\GraphQL\Queries\UserLoginQuery;
+use App\GraphQL\Types\CategoryType;
+use App\GraphQL\Types\QuestType;
+use App\GraphQL\Types\RegisterUserType;
+use App\GraphQL\Types\UserType;
 
 return [
     'route' => [
@@ -92,6 +96,7 @@ return [
                 'quests' => QuestsQuery::class,
                 'category' => CategoryQuery::class,
                 'categories' => CategoriesQuery::class,
+                'userLogin' => UserLoginQuery::class,
             ],
             'mutation' => [
                 'createCategory' => CreateCategoryMutation::class,
@@ -100,14 +105,18 @@ return [
                 'createQuest' => CreateQuestMutation::class,
                 'deleteQuest' => DeleteQuestMutation::class,
                 'updateQuest' => UpdateQuestMutation::class,
+                'createUser' => CreateUser::class
             ],
             // The types only available in this schema
             'types' => [
                 'Quest' => QuestType::class,
-                'Category' => CategoryType::class
+                'Category' => CategoryType::class,
+                'RegisterUser' => RegisterUserType::class,
+                'User' => UserType::class
             ],
 
             // Laravel HTTP middleware
+//            'middleware' => ['auth:api'],
             'middleware' => null,
 
             // Which HTTP methods to support; must be given in UPPERCASE!
@@ -115,6 +124,11 @@ return [
 
             // An array of middlewares, overrides the global ones
             'execution_middleware' => null,
+        ],
+        'secret' => [
+            'query' => [
+                'mySecretQuery' => CategoriesQuery::class
+            ]
         ],
     ],
 
