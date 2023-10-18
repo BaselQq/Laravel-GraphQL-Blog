@@ -29,7 +29,7 @@ class CreateUser extends Mutation {
             'email' => [
                 'name' => 'email',
                 'type' => Type::nonNull(Type::string()),
-                'rules' => ['required', 'email', 'unique:users']
+                'rules' => ['required', 'email', 'unique:user']
             ],
             'password' => [
                 'name' => 'password',

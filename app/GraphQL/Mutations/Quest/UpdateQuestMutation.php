@@ -26,19 +26,19 @@ class UpdateQuestMutation extends Mutation {
             ],
             'title' => [
                 'name' => 'title',
-                'type' => Type::nonNull(Type::string())
+                'type' => Type::string()
             ],
             'description' => [
                 'name' => 'description',
-                'type' => Type::nonNull(Type::string())
+                'type' => Type::string()
             ],
             'reward' => [
                 'name' => 'reward',
-                'type' => Type::nonNull(Type::int())
+                'type' => Type::int()
             ],
             'category_id' => [
                 'name' => 'category_id',
-                'type' => Type::nonNull(Type::int()),
+                'type' => Type::int(),
                 'rules' => ['exists:categories,id']
             ]
         ];

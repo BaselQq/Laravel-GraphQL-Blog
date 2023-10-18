@@ -11,9 +11,16 @@ class UserAuthController extends Controller
     public function register(Request $request)
     {
         $data = $request->validate([
+            'username' => 'required|max:255',
             'name' => 'required|max:255',
+            'surname' => 'required|max:255',
             'email' => 'required|email|unique:users',
-            'password' => 'required|confirmed'
+            'password' => 'required|confirmed',
+            'street' => 'required|max:255',
+            'street_number' => 'required|max:255',
+            'plz' => 'required|max:255',
+            'city' => 'required|max:255',
+            'photo_name' => 'required|max:255',
         ]);
 
         $data['password'] = bcrypt($request->password);
