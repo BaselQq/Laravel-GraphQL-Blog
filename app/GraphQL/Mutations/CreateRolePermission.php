@@ -12,7 +12,8 @@ use Rebing\GraphQL\Support\Mutation;
 class CreateRolePermission extends Mutation {
 
     protected $attributes = [
-        ''
+        'name' => 'createRolePermissions',
+        'description' => 'Create permissions for specific role'
     ];
 
     public function type(): GraphQLType {
