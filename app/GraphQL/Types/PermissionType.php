@@ -25,6 +25,10 @@ class PermissionType extends GraphQLType {
                 'type' => Type::string(),
                 'description' => 'Name of permission'
             ],
+            'resource' => [
+                'type' => Type::string(),
+                'description' => 'Name of specific resource'
+            ],
             'created_at' => [
                 'type' => Type::string(),
                 'description' => 'Permission created at time',
