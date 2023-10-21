@@ -2,9 +2,11 @@
 
 declare(strict_types = 1);
 
+use App\GraphQL\Enums\PermissionEnum;
 use App\GraphQL\Mutations\Category\CreateCategoryMutation;
 use App\GraphQL\Mutations\Category\DeleteCategoryMutation;
 use App\GraphQL\Mutations\Category\UpdateCategoryMutation;
+use App\GraphQL\Mutations\CreateRolePermission;
 use App\GraphQL\Mutations\CreateUser;
 use App\GraphQL\Mutations\CreateUserRole;
 use App\GraphQL\Mutations\Quest\CreateQuestMutation;
@@ -16,6 +18,7 @@ use App\GraphQL\Queries\Quest\QuestQuery;
 use App\GraphQL\Queries\Quest\QuestsQuery;
 use App\GraphQL\Queries\UserLoginQuery;
 use App\GraphQL\Types\CategoryType;
+use App\GraphQL\Types\PermissionType;
 use App\GraphQL\Types\QuestType;
 use App\GraphQL\Types\RegisterUserType;
 use App\GraphQL\Types\UserRoleType;
@@ -108,6 +111,7 @@ return [
                 'deleteQuest' => DeleteQuestMutation::class,
                 'updateQuest' => UpdateQuestMutation::class,
                 'createUserRole' => CreateUserRole::class,
+                'createRolePermission' => CreateRolePermission::class,
 //                'createUser' => CreateUser::class
             ],
             // The types only available in this schema
@@ -115,13 +119,15 @@ return [
                 'UserRole' => UserRoleType::class,
                 'Quest' => QuestType::class,
                 'Category' => CategoryType::class,
+                'PermissionEnum' => PermissionEnum::class,
+                'Permission' => PermissionType::class,
 //                'RegisterUser' => RegisterUserType::class,
 //                'User' => UserType::class
             ],
 
             // Laravel HTTP middleware
-            'middleware' => ['auth:api'],
-//            'middleware' => null,
+//            'middleware' => ['auth:api'],
+            'middleware' => null,
 
             // Which HTTP methods to support; must be given in UPPERCASE!
             'method' => ['GET', 'POST'],

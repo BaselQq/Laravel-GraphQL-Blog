@@ -2,8 +2,10 @@
 
 namespace App\GraphQL\Types;
 
+use App\Models\Permission;
 use App\Models\Role;
 use GraphQL\Type\Definition\Type;
+use Rebing\GraphQL\Support\Facades\GraphQL;
 use Rebing\GraphQL\Support\Type as GraphQLType;
 
 class UserRoleType extends GraphQLType{
@@ -28,6 +30,13 @@ class UserRoleType extends GraphQLType{
             'photo_name' => [
                 'type' => Type::string(),
                 'description' => 'Name of role photo file',
+            ],
+            'permissions' => [
+                'type' => Type::listOf(GraphQL::type('Permission')),
+                'description' => 'User role permissions',
+                'resolve' => function (Role $O) {
+                    return $O->permissions;
+                }
             ],
             'created_at' => [
                 'type' => Type::string(),
