@@ -18,19 +18,19 @@ class UserType extends GraphQLType {
     public function fields(): array {
         return [
             'id' => [
-                'type' => Type::nonNull(Type::int()),
+                'type' => Type::int(),
                 'description' => 'User id'
             ],
             'name' => [
-                'type' => Type::nonNull(Type::string()),
+                'type' => Type::string(),
                 'description' => 'Username'
             ],
             'email' => [
-                'type' => Type::nonNull(Type::string()),
+                'type' => Type::string(),
                 'description' => 'User E-Mail'
             ],
             'remember_token' => [
-                'type' => Type::nonNull(Type::string()),
+                'type' => Type::string(),
                 'description' => 'User Login Token',
                 'resolve' => function (User $user) {
                     return $user->createToken('API Token')->accessToken;

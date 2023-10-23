@@ -123,9 +123,9 @@ return [
                 'UserRole' => UserRoleType::class,
                 'Quest' => QuestType::class,
                 'Permission' => PermissionType::class,
-//                'RegisterUser' => RegisterUserType::class,
-//                'User' => UserType::class
+                'User' => UserType::class,
                 'Category' => CategoryType::class,
+//                'RegisterUser' => RegisterUserType::class,
                 // Enums
                 'PermissionEnum' => PermissionEnum::class,
                 'ResourceEnum' => ResourceEnum::class,

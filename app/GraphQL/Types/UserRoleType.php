@@ -2,7 +2,6 @@
 
 namespace App\GraphQL\Types;
 
-use App\Models\Permission;
 use App\Models\Role;
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Facades\GraphQL;
@@ -21,7 +20,7 @@ class UserRoleType extends GraphQLType{
             'id' => [
                 'type' => Type::int(),
                 'description' => 'Role id'
-                ],
+            ],
             'name' => [
                 'type' => Type::nonNull(Type::string()),
                 'description' => 'Role Name'
@@ -36,6 +35,13 @@ class UserRoleType extends GraphQLType{
                 'description' => 'User role permissions',
                 'resolve' => function (Role $O) {
                     return $O->permissions;
+                }
+            ],
+            'users' => [
+                'type' => Type::listof(GraphQL::type('User')),
+                'description' => 'Users of the role',
+                'resolve' => function (Role $O) {
+                    return $O->user;
                 }
             ],
             'created_at' => [

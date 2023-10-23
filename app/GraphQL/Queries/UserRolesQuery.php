@@ -19,6 +19,7 @@ class UserRolesQuery extends Query {
     }
 
     public function resolve($root, $args) {
+        // TODO: logic to add authentication
         return Role::all();
     }
 }
