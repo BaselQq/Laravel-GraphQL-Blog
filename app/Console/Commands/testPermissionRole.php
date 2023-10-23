@@ -28,11 +28,13 @@ class testPermissionRole extends Command
     public function handle()
     {
         $permissions = ['create', 'read', 'update', 'delete'];
+        $resource = "POST";
         $Role = Role::query()->find('85');
 
         foreach ($permissions as $permission) {
             $Permission = new Permission();
             $Permission->name = $permission;
+            $Permission->resource = $resource;
             $Permission->save();
             $Role->permissions()->attach($Permission);
         }

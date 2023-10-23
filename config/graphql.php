@@ -3,6 +3,7 @@
 declare(strict_types = 1);
 
 use App\GraphQL\Enums\PermissionEnum;
+use App\GraphQL\Enums\ResourceEnum;
 use App\GraphQL\Mutations\Category\CreateCategoryMutation;
 use App\GraphQL\Mutations\Category\DeleteCategoryMutation;
 use App\GraphQL\Mutations\Category\UpdateCategoryMutation;
@@ -17,6 +18,7 @@ use App\GraphQL\Queries\Category\CategoryQuery;
 use App\GraphQL\Queries\Quest\QuestQuery;
 use App\GraphQL\Queries\Quest\QuestsQuery;
 use App\GraphQL\Queries\UserLoginQuery;
+use App\GraphQL\Queries\UserRolesQuery;
 use App\GraphQL\Types\CategoryType;
 use App\GraphQL\Types\PermissionType;
 use App\GraphQL\Types\QuestType;
@@ -101,6 +103,7 @@ return [
                 'quests' => QuestsQuery::class,
                 'category' => CategoryQuery::class,
                 'categories' => CategoriesQuery::class,
+                'userRoles' => UserRolesQuery::class,
 //                'userLogin' => UserLoginQuery::class,
             ],
             'mutation' => [
@@ -116,13 +119,16 @@ return [
             ],
             // The types only available in this schema
             'types' => [
+                // Types
                 'UserRole' => UserRoleType::class,
                 'Quest' => QuestType::class,
-                'Category' => CategoryType::class,
-                'PermissionEnum' => PermissionEnum::class,
                 'Permission' => PermissionType::class,
 //                'RegisterUser' => RegisterUserType::class,
 //                'User' => UserType::class
+                'Category' => CategoryType::class,
+                // Enums
+                'PermissionEnum' => PermissionEnum::class,
+                'ResourceEnum' => ResourceEnum::class,
             ],
 
             // Laravel HTTP middleware
