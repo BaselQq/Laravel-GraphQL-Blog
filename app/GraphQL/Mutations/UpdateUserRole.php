@@ -13,7 +13,7 @@ class UpdateUserRole extends Mutation {
 
     protected $attributes = [
         'name' => 'UpdateUserRole',
-        'description' => 'Update specific User Roles'
+        'description' => 'Update User Roles by id'
     ];
 
     public function type(): GraphQLType {
