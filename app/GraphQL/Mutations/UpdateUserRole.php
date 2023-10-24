@@ -36,6 +36,7 @@ class UpdateUserRole extends Mutation {
     }
 
     public function resolve($root, $args) {
+        // TODO: adding Gates is necessarily
         $Role = Role::find($args['roleId']);
         $Role->name = $args['roleName'];
         $Role->save();
