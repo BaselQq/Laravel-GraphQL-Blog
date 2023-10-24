@@ -18,6 +18,7 @@ use App\GraphQL\Queries\Category\CategoryQuery;
 use App\GraphQL\Queries\Quest\QuestQuery;
 use App\GraphQL\Queries\Quest\QuestsQuery;
 use App\GraphQL\Queries\UserLoginQuery;
+use App\GraphQL\Queries\UserRoleQuery;
 use App\GraphQL\Queries\UserRolesQuery;
 use App\GraphQL\Types\CategoryType;
 use App\GraphQL\Types\PermissionType;
@@ -99,32 +100,33 @@ return [
     'schemas' => [
         'default' => [
             'query' => [
-                'quest' => QuestQuery::class,
-                'quests' => QuestsQuery::class,
-                'category' => CategoryQuery::class,
-                'categories' => CategoriesQuery::class,
+                'userRole' => UserRoleQuery::class,
                 'userRoles' => UserRolesQuery::class,
 //                'userLogin' => UserLoginQuery::class,
+//                'categories' => CategoriesQuery::class,
+//                'category' => CategoryQuery::class,
+//                'quests' => QuestsQuery::class,
+//                'quest' => QuestQuery::class,
             ],
             'mutation' => [
-                'createCategory' => CreateCategoryMutation::class,
-                'deleteCategory' => DeleteCategoryMutation::class,
-                'updateCategory' => UpdateCategoryMutation::class,
-                'createQuest' => CreateQuestMutation::class,
-                'deleteQuest' => DeleteQuestMutation::class,
-                'updateQuest' => UpdateQuestMutation::class,
                 'createUserRole' => CreateUserRole::class,
                 'createRolePermission' => CreateRolePermission::class,
 //                'createUser' => CreateUser::class
+//                'updateQuest' => UpdateQuestMutation::class,
+//                'deleteQuest' => DeleteQuestMutation::class,
+//                'createQuest' => CreateQuestMutation::class,
+//                'updateCategory' => UpdateCategoryMutation::class,
+//                'deleteCategory' => DeleteCategoryMutation::class,
+//                'createCategory' => CreateCategoryMutation::class,
             ],
             // The types only available in this schema
             'types' => [
                 // Types
                 'UserRole' => UserRoleType::class,
-                'Quest' => QuestType::class,
                 'Permission' => PermissionType::class,
                 'User' => UserType::class,
-                'Category' => CategoryType::class,
+//                'Quest' => QuestType::class,
+//                'Category' => CategoryType::class,
 //                'RegisterUser' => RegisterUserType::class,
                 // Enums
                 'PermissionEnum' => PermissionEnum::class,
