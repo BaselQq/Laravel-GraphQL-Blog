@@ -13,6 +13,7 @@ use App\GraphQL\Mutations\CreateUserRole;
 use App\GraphQL\Mutations\Quest\CreateQuestMutation;
 use App\GraphQL\Mutations\Quest\DeleteQuestMutation;
 use App\GraphQL\Mutations\Quest\UpdateQuestMutation;
+use App\GraphQL\Mutations\UpdateUserRole;
 use App\GraphQL\Queries\Category\CategoriesQuery;
 use App\GraphQL\Queries\Category\CategoryQuery;
 use App\GraphQL\Queries\Quest\QuestQuery;
@@ -110,6 +111,7 @@ return [
             ],
             'mutation' => [
                 'createUserRole' => CreateUserRole::class,
+                'UpdateUserRole' => UpdateUserRole::class,
                 'createRolePermission' => CreateRolePermission::class,
 //                'createUser' => CreateUser::class
 //                'updateQuest' => UpdateQuestMutation::class,
