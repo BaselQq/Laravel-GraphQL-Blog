@@ -38,7 +38,7 @@ class UserRoleType extends GraphQLType{
                 }
             ],
             'users' => [
-                'type' => Type::listof(GraphQL::type('User')),
+                'type' => Type::listOf(GraphQL::type('User')),
                 'description' => 'Users of the role',
                 'resolve' => function (Role $O) {
                     return $O->user;
