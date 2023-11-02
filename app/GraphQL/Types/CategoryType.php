@@ -13,6 +13,7 @@ class CategoryType extends GraphQLType {
         'description' => 'Collection of categories',
         'model' => Category::class
     ];
+
     public function fields(): array {
         return [
             'id' => [
@@ -23,10 +24,22 @@ class CategoryType extends GraphQLType {
                 'type' => Type::nonNull(Type::string()),
                 'description' => 'Title of the quest'
             ],
-            'quests' => [
-                'type' => Type::listOf(GraphQL::type('Quest')),
-                'description' => 'List of quests'
+            'description' => [
+                'type' => Type::string(),
+                'description' => 'Description of the category'
+            ],
+            'created_at' => [
+                'type' => Type::int(),
+                'description' => 'Category created at timestamp'
+            ],
+            'updated_at' => [
+                'type' => Type::int(),
+                'description' => 'Category updated at timestamp'
             ]
+//            'quests' => [
+//                'type' => Type::listOf(GraphQL::type('Quest')),
+//                'description' => 'List of quests'
+//            ]
         ];
     }
 }

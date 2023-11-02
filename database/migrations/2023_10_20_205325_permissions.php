@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('permissions', function(Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->timestamps();
-        });
-
-        Schema::table('permissions', function(Blueprint $table) {
-            $table->string('resource')->after('name');
-        });
+//        Schema::create('permissions', function(Blueprint $table) {
+//            $table->id();
+//            $table->string('name');
+//            $table->timestamps();
+//        });
+//
+//        Schema::table('permissions', function(Blueprint $table) {
+//            $table->string('resource')->after('name');
+//        });
     }
 
     /**

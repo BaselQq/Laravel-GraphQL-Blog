@@ -3,9 +3,11 @@
 namespace App\GraphQL\Mutations;
 
 use App\Models\Role;
+use Closure;
+use GraphQL\Type\Definition\ResolveInfo;
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Definition\Type as GraphQLType;
-use Rebing\GraphQL\Support\Facades\GraphQL;
+use Illuminate\Support\Facades\Auth;
 use Rebing\GraphQL\Support\Mutation;
 
 class DeleteUserRole extends Mutation {
@@ -17,6 +19,10 @@ class DeleteUserRole extends Mutation {
 
     public function type(): GraphQLType {
         return Type::boolean();
+    }
+
+    public function authorize($root, array $args, $ctx, ResolveInfo $resolveInfo = null, Closure $getSelectFields = null): bool {
+        return Auth::guard('api')->check();
     }
 
     public function args(): array {

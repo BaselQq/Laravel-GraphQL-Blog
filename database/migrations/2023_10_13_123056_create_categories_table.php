@@ -13,10 +13,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id();
-            $table->text('title');
-            $table->timestamps();
+//        Schema::create('categories', function (Blueprint $table) {
+//            $table->id();
+//            $table->string('title');
+//            $table->timestamps();
+//        });
+
+        Schema::table('categories', function (Blueprint $table) {
+            $table->bigInteger('user_id')->nullable()->unsigned()->index()->after('id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('description')->after('title')->nullable();
         });
     }
 
