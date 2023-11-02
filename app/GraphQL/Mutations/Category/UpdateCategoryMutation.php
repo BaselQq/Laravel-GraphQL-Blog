@@ -3,8 +3,12 @@
 namespace App\GraphQL\Mutations\Category;
 
 use App\Models\Category;
+use App\Models\User;
+use Closure;
+use GraphQL\Type\Definition\ResolveInfo;
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Definition\Type as GraphQLType;
+use Illuminate\Support\Facades\Auth;
 use Rebing\GraphQL\Support\Facades\GraphQL;
 use Rebing\GraphQL\Support\Mutation;
 
@@ -14,6 +18,10 @@ class UpdateCategoryMutation extends Mutation {
         'name' => 'updateCategory',
         'description' => 'Updates a category'
     ];
+
+    public function authorize($root, array $args, $ctx, ResolveInfo $resolveInfo = null, Closure $getSelectFields = null): bool {
+        return Auth::guard('api')->check();
+    }
 
     public function type(): GraphQLType {
         return GraphQL::type('Category');
@@ -28,6 +36,10 @@ class UpdateCategoryMutation extends Mutation {
             'title' => [
                 'name' => 'title',
                 'type' => Type::nonNull(Type::string())
+            ],
+            'description' => [
+                'name' => 'description',
+                'type' => Type::string()
             ]
         ];
     }

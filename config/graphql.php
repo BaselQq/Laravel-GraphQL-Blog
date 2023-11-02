@@ -104,24 +104,24 @@ return [
             'query' => [
                 'userRole' => UserRoleQuery::class,
                 'userRoles' => UserRolesQuery::class,
-//                'userLogin' => UserLoginQuery::class,
-//                'categories' => CategoriesQuery::class,
-//                'category' => CategoryQuery::class,
+                'categories' => CategoriesQuery::class,
+                'category' => CategoryQuery::class,
 //                'quests' => QuestsQuery::class,
 //                'quest' => QuestQuery::class,
+//                'userLogin' => UserLoginQuery::class,
             ],
             'mutation' => [
                 'createUserRole' => CreateUserRole::class,
                 'UpdateUserRole' => UpdateUserRole::class,
                 'DeleteUserRole' => DeleteUserRole::class,
                 'createRolePermission' => CreateRolePermission::class,
-//                'createUser' => CreateUser::class
-//                'updateQuest' => UpdateQuestMutation::class,
-//                'deleteQuest' => DeleteQuestMutation::class,
+                'updateCategory' => UpdateCategoryMutation::class,
+                'deleteCategory' => DeleteCategoryMutation::class,
+                'createCategory' => CreateCategoryMutation::class,
 //                'createQuest' => CreateQuestMutation::class,
-//                'updateCategory' => UpdateCategoryMutation::class,
-//                'deleteCategory' => DeleteCategoryMutation::class,
-//                'createCategory' => CreateCategoryMutation::class,
+//                'deleteQuest' => DeleteQuestMutation::class,
+//                'updateQuest' => UpdateQuestMutation::class,
+//                'createUser' => CreateUser::class
             ],
             // The types only available in this schema
             'types' => [
@@ -129,8 +129,8 @@ return [
                 'UserRole' => UserRoleType::class,
                 'Permission' => PermissionType::class,
                 'User' => UserType::class,
+                'Category' => CategoryType::class,
 //                'Quest' => QuestType::class,
-//                'Category' => CategoryType::class,
 //                'RegisterUser' => RegisterUserType::class,
                 // Enums
                 'PermissionEnum' => PermissionEnum::class,

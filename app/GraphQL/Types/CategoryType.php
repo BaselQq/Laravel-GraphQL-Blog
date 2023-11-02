@@ -28,13 +28,23 @@ class CategoryType extends GraphQLType {
                 'type' => Type::string(),
                 'description' => 'Description of the category'
             ],
+            'user' => [
+                'type' => GraphQL::type('User'),
+                'description' => 'Category owned user',
+            ],
             'created_at' => [
                 'type' => Type::int(),
-                'description' => 'Category created at timestamp'
+                'description' => 'Category created at timestamp',
+                'resolve' => function (Category $O) {
+                    return $O->created_at->getTimestamp();
+                }
             ],
             'updated_at' => [
                 'type' => Type::int(),
-                'description' => 'Category updated at timestamp'
+                'description' => 'Category updated at timestamp',
+                'resolve' => function (Category $O) {
+                    return $O->created_at->getTimestamp();
+                }
             ]
 //            'quests' => [
 //                'type' => Type::listOf(GraphQL::type('Quest')),

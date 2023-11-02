@@ -45,7 +45,7 @@ class CreateUserRole extends Mutation {
         $Role->photo_name = "";
         $Role->save();
 
-        $User = User::find(Auth::user()->id);
+        $User = User::find(Auth::guard('api')->user()->id);
         $User->roles()->attach($Role->id);
         return $User->roles->sortByDESC('created_at');
     }
