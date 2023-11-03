@@ -111,6 +111,7 @@ return [
                 'categories' => CategoriesQuery::class,
                 'category' => CategoryQuery::class,
                 'posts' => PostsQuery::class,
+                'post' => PostQuery::class,
 //                'quests' => QuestsQuery::class,
 //                'quest' => QuestQuery::class,
 //                'userLogin' => UserLoginQuery::class,
@@ -137,11 +138,11 @@ return [
                 'Category' => CategoryType::class,
                 'Post' => PostType::class,
                 'Upload' => UploadType::class,
-//                'Quest' => QuestType::class,
-//                'RegisterUser' => RegisterUserType::class,
-                // Enums
                 'PermissionEnum' => PermissionEnum::class,
                 'ResourceEnum' => ResourceEnum::class,
+                // Enums
+//                'RegisterUser' => RegisterUserType::class,
+//                'Quest' => QuestType::class,
             ],
 
             // Laravel HTTP middleware

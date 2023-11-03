@@ -40,6 +40,10 @@ class PostType extends GraphQlType {
             'user' => [
                 'type' => GraphQL::type('User'),
                 'description' => 'User of post'
+            ],
+            'category' => [
+                'type' => Type::listOf(GraphQL::type('Category')),
+                'description' => 'Post categories'
             ]
         ];
     }
