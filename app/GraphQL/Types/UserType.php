@@ -29,13 +29,13 @@ class UserType extends GraphQLType {
                 'type' => Type::string(),
                 'description' => 'User E-Mail'
             ],
-            'remember_token' => [
-                'type' => Type::string(),
-                'description' => 'User Login Token',
-                'resolve' => function (User $user) {
-                    return $user->createToken('API Token')->accessToken;
-                }
-            ]
+//            'remember_token' => [
+//                'type' => Type::string(),
+//                'description' => 'User Login Token',
+//                'resolve' => function (User $user) {
+//                    return $user->createToken('API Token')->accessToken;
+//                }
+//            ]
         ];
     }
 

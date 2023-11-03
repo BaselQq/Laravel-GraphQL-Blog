@@ -30,14 +30,14 @@ class PermissionType extends GraphQLType {
                 'description' => 'Name of specific resource'
             ],
             'created_at' => [
-                'type' => Type::string(),
+                'type' => Type::int(),
                 'description' => 'Permission created at time',
                 'resolve' => function (Permission $Object) {
                     return $Object->created_at->getTimestamp();
                 }
             ],
             'updated_at' => [
-                'type' => Type::string(),
+                'type' => Type::int(),
                 'description' => 'Permission updated at time',
                 'resolve' => function (Permission $Object) {
                     return $Object->updated_at->getTimestamp();

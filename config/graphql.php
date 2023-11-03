@@ -17,6 +17,8 @@ use App\GraphQL\Mutations\Quest\UpdateQuestMutation;
 use App\GraphQL\Mutations\UpdateUserRole;
 use App\GraphQL\Queries\Category\CategoriesQuery;
 use App\GraphQL\Queries\Category\CategoryQuery;
+use App\GraphQL\Queries\PostQuery;
+use App\GraphQL\Queries\PostsQuery;
 use App\GraphQL\Queries\Quest\QuestQuery;
 use App\GraphQL\Queries\Quest\QuestsQuery;
 use App\GraphQL\Queries\UserLoginQuery;
@@ -24,10 +26,12 @@ use App\GraphQL\Queries\UserRoleQuery;
 use App\GraphQL\Queries\UserRolesQuery;
 use App\GraphQL\Types\CategoryType;
 use App\GraphQL\Types\PermissionType;
+use App\GraphQL\Types\PostType;
 use App\GraphQL\Types\QuestType;
 use App\GraphQL\Types\RegisterUserType;
 use App\GraphQL\Types\UserRoleType;
 use App\GraphQL\Types\UserType;
+use Rebing\GraphQL\Support\UploadType;
 
 return [
     'route' => [
@@ -106,6 +110,7 @@ return [
                 'userRoles' => UserRolesQuery::class,
                 'categories' => CategoriesQuery::class,
                 'category' => CategoryQuery::class,
+                'posts' => PostsQuery::class,
 //                'quests' => QuestsQuery::class,
 //                'quest' => QuestQuery::class,
 //                'userLogin' => UserLoginQuery::class,
@@ -130,6 +135,8 @@ return [
                 'Permission' => PermissionType::class,
                 'User' => UserType::class,
                 'Category' => CategoryType::class,
+                'Post' => PostType::class,
+                'Upload' => UploadType::class,
 //                'Quest' => QuestType::class,
 //                'RegisterUser' => RegisterUserType::class,
                 // Enums
