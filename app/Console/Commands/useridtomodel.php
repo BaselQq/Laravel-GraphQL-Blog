@@ -26,11 +26,12 @@ class useridtomodel extends Command
      */
     public function handle()
     {
-        $category = new Category();
-        $category->title = "fjfj";
-//        $category->user_id = 123;
-        $category->user_id = 3;
-        $category->save();
+            $Category = Category::query()->find(27);
 
+//            $Category->post->limit(2)->get();
+//            $Category->post->offset(1);
+        dd($Category->post->split(4));
+//        echo PHP_EOL;
+//        dd($Category->post);
     }
 }

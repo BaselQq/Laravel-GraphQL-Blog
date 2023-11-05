@@ -32,6 +32,13 @@ class CategoryType extends GraphQLType {
                 'type' => GraphQL::type('User'),
                 'description' => 'Category owned user',
             ],
+            'posts' => [
+                'type' => Type::listOf(GraphQL::type('Post')),
+                'description' => 'Posts of category',
+                'resolve' => function (Category $O) {
+                    return $O->post;
+                }
+            ],
             'created_at' => [
                 'type' => Type::int(),
                 'description' => 'Category created at timestamp',

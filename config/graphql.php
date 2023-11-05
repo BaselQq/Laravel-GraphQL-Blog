@@ -4,6 +4,8 @@ declare(strict_types = 1);
 
 use App\GraphQL\Enums\PermissionEnum;
 use App\GraphQL\Enums\ResourceEnum;
+use App\GraphQL\Enums\SortTypeEnum;
+use App\GraphQL\Inputs\SortTypeInput;
 use App\GraphQL\Mutations\Category\CreateCategoryMutation;
 use App\GraphQL\Mutations\Category\DeleteCategoryMutation;
 use App\GraphQL\Mutations\Category\UpdateCategoryMutation;
@@ -140,6 +142,8 @@ return [
                 'Upload' => UploadType::class,
                 'PermissionEnum' => PermissionEnum::class,
                 'ResourceEnum' => ResourceEnum::class,
+                'SortTypeEnum' => SortTypeEnum::class,
+                'SortTypeInput' => SortTypeInput::class,
                 // Enums
 //                'RegisterUser' => RegisterUserType::class,
 //                'Quest' => QuestType::class,
