@@ -44,7 +44,7 @@ class PostsQuery extends Query {
     }
 
     public function resolve($root, $args) {
-        $limit = $args['limit'] ?? 1;
+        $limit = $args['limit'] ?? 6;
         $offset = $args['offset'] ?? 0;
 
         if (isset($args['categoryId'])) {
