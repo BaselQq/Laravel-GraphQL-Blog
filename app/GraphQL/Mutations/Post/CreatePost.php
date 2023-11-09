@@ -32,12 +32,11 @@ class CreatePost extends Mutation {
         return [
             'categoryId' => [
                 'name' => 'categoryId',
-                'type' => Type::int()
+                'type' => Type::nonNull(Type::int()),
             ],
             'title' => [
                 'name' => 'title',
-                'type' => Type::string(),
-                'rules' => ['required']
+                'type' => Type::nonNull(Type::string()),
             ],
             'description' => [
                 'name' => 'description',
@@ -45,12 +44,12 @@ class CreatePost extends Mutation {
             ],
             'postContent' => [
                 'name' => 'postContent',
-                'type' => Type::string()
+                'type' => Type::nonNull(Type::string())
             ],
             'postPhoto' => [
                 'name' => 'postPhoto',
                 'type' => GraphQL::type('Upload'),
-//                'rules' => ['required', 'image', 'max:5000']
+                'rules' => ['image', 'max:5000']
             ]
         ];
     }
