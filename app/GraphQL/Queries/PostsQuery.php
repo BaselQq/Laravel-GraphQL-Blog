@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Post;
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Definition\Type as GraphQlType;
+use Illuminate\Support\Facades\DB;
 use Rebing\GraphQL\Support\Facades\GraphQL;
 use Rebing\GraphQL\Support\Query;
 
@@ -56,6 +57,8 @@ class PostsQuery extends Query {
             return $Posts->limit($limit)->skip($offset)->get();
         }
 
-        return Post::all();
+        return DB::table('posts')
+            ->orderBy('id', 'desc')
+            ->get();
     }
 }
