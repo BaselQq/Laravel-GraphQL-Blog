@@ -1,4 +1,4 @@
-# Frontend in React:
+# Frontend in React
 https://github.com/BaselQq/React-GraphQL-Blog
 
 # Install
