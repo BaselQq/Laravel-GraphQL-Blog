@@ -23,6 +23,18 @@ php artisan config:cache
 ```
 
 ```bash
+php artisan passport:client
+```
+
+```bash
+php artisan passport:keys
+```
+
+```bash
+php artisan passport:install
+```
+
+```bash
 php artisan serve
 ```
 
