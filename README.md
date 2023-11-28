@@ -51,11 +51,11 @@ https://github.com/mll-lab/laravel-graphiql
 composer require --dev barryvdh/laravel-ide-helper
 ```
 
-# Resources
 ## markdown-to-jsx
 https://www.npmjs.com/package/markdown-to-jsx#installation
 Example:
 https://github.com/ljaviertovar/blog-markdown/blob/main/src/components/Post.js
+
 ## Upload files in laravel
 https://laravel.com/docs/10.x/filesystem#storing-files
 
